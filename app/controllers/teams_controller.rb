@@ -52,4 +52,14 @@ class TeamsController < ApplicationController
     end
   end
 
+  delete '/teams/:id/delete' do
+    @team = Team.find(params[:id])
+    if @team.user_id == current_user.id
+      @team.delete
+      redirect '/teams'
+    else
+      erb :'/teams/index'
+    end
+  end
+
 end
