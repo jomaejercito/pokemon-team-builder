@@ -1,0 +1,14 @@
+<h1>Edit Team:</h1>
+
+<form action="/teams/<%= @team.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Name: <input type="text" name="team[name]" id="name" value="<%= @team.name %>"></label><br><br>
+  <input type="text" name="team[pokemon_1]" id="pokemon_1" value="<%= @team.pokemon_1%>"><br>
+  <input type="text" name="team[pokemon_2]" id="pokemon_2" value="<%= @team.pokemon_2%>"><br>
+  <input type="text" name="team[pokemon_3]" id="pokemon_3" value="<%= @team.pokemon_3%>"><br>
+  <input type="text" name="team[pokemon_4]" id="pokemon_4" value="<%= @team.pokemon_4%>"><br>
+  <input type="text" name="team[pokemon_5]" id="pokemon_5" value="<%= @team.pokemon_5%>"><br>
+  <input type="text" name="team[pokemon_6]" id="pokemon_6" value="<%= @team.pokemon_6%>"><br>
+  <br>
+  <button>Update</button>
+</form>

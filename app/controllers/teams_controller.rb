@@ -32,4 +32,24 @@ class TeamsController < ApplicationController
     end
   end
 
+  get '/teams/:id/edit' do
+    if logged_in?
+      @team = Team.find(params[:id])
+      erb :'teams/edit'
+    else
+      redirect '/login'
+    end
+  end
+
+  patch '/teams/:id' do
+    @team = Team.find(params[:id])
+    if @team.user_id == current_user.id
+      @team.update(params[:team])
+      @team.save
+      redirect "/teams/#{@team.id}"
+    else
+      erb :'/teams/index'
+    end
+  end
+
 end
