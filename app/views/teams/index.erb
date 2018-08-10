@@ -1,1 +1,8 @@
-Hello world!
+<h1>Welcome, <%= @current_user.username %></h1>
+<br>
+
+<ul>
+  <li><a href="/teams/new"> Add a Team </a></li>
+  <li><a href="/teams/show"> View Other Teams </a></li>
+  <li><a href="/logout"> Logout </a></li>
+</ul>
