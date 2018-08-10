@@ -1,0 +1,17 @@
+<h1> <%= @team.name %> </h1>
+<br>
+
+  <h2>Pokémon:</h2>
+
+  <h3><%= @team.pokemon_1 %></h3>
+  <h3><%= @team.pokemon_2 %></h3>
+  <h3><%= @team.pokemon_3 %></h3>
+  <h3><%= @team.pokemon_4 %></h3>
+  <h3><%= @team.pokemon_5 %></h3>
+  <h3><%= @team.pokemon_6 %></h3>
+
+  <br><br><br>
+
+<a href="/teams/<%= @team.id %>/edit">Edit Team</a>
+<br>
+<a href="/teams">View All Teams</a>

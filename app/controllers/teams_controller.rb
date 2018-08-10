@@ -23,4 +23,13 @@ class TeamsController < ApplicationController
     redirect '/teams'
   end
 
+  get '/teams/:id' do
+    if logged_in?
+      @team = Team.find(params[:id])
+      erb :'teams/show'
+    else
+      redirect '/login'
+    end
+  end
+
 end
