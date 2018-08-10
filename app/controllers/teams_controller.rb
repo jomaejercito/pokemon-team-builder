@@ -16,6 +16,11 @@ class TeamsController < ApplicationController
     end
   end
 
-
+  post '/teams' do
+    @team = Team.create(params[:team])
+    @team.user_id = current_user.id
+    @team.save
+    redirect '/teams'
+  end
 
 end
