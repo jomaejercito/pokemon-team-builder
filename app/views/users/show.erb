@@ -1,0 +1,15 @@
+<h1><%= @user.username %>'s Teams</h1>
+<br>
+
+  <% @teams.each do |team| %>
+    <h3><a href='/teams/<%= team.id %>'><%= team.name %></a></h3>
+    <h4>Trainer: <%= team.user.username %></h4>
+    <br><br>
+  <% end %>
+
+<br><br><br><br><br>
+
+<ul>
+  <li><a href="/teams/new"> Create a Team </a></li>
+  <li><a href="/logout"> Logout </a></li>
+</ul>

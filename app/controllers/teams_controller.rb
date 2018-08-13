@@ -26,6 +26,7 @@ class TeamsController < ApplicationController
   get '/teams/:id' do
     if logged_in?
       @team = Team.find(params[:id])
+      @user = current_user
       erb :'teams/show'
     else
       redirect '/login'
@@ -33,11 +34,11 @@ class TeamsController < ApplicationController
   end
 
   get '/teams/:id/edit' do
-    if logged_in?
-      @team = Team.find(params[:id])
+    @team = Team.find(params[:id])
+    if current_user.id == @team.user_id
       erb :'teams/edit'
     else
-      redirect '/login'
+      redirect '/teams'
     end
   end
 
@@ -48,7 +49,8 @@ class TeamsController < ApplicationController
       @team.save
       redirect "/teams/#{@team.id}"
     else
-      erb :'/teams/index'
+      #erb :'/teams/index'
+      redirect '/teams'
     end
   end
 
@@ -58,7 +60,8 @@ class TeamsController < ApplicationController
       @team.delete
       redirect '/teams'
     else
-      erb :'/teams/index'
+      #erb :'/teams/index'
+      redirect '/teams'
     end
   end
 

@@ -12,13 +12,17 @@
 
   <br><br><br>
 
-<button><a href="/teams/<%= @team.id %>/edit">Edit Team</a></button>
-<br>
+<% if @user.id == @team.user_id %>
 
-<form action="/teams/<%= @team.id %>/delete" method ="POST">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <button>Delete Team</button>
-</form>
-<br>
+  <button><a href="/teams/<%= @team.id %>/edit">Edit Team</a></button>
+  <br>
+
+  <form action="/teams/<%= @team.id %>/delete" method ="POST">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <button>Delete Team</button>
+  </form>
+  <br>
+
+<% end %>
 
 <a href="/teams">View All Teams</a>

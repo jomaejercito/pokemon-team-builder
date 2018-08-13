@@ -43,5 +43,11 @@ class UsersController < ApplicationController
     redirect '/'
   end
 
+  get '/users/:id' do
+    @user = User.find(params[:id])
+    @teams = @user.teams
+    erb :'/users/show'
+  end
+
 
 end
