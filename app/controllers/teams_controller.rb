@@ -49,7 +49,6 @@ class TeamsController < ApplicationController
       @team.save
       redirect "/teams/#{@team.id}"
     else
-      #erb :'/teams/index'
       redirect '/teams'
     end
   end
@@ -60,7 +59,6 @@ class TeamsController < ApplicationController
       @team.delete
       redirect '/teams'
     else
-      #erb :'/teams/index'
       redirect '/teams'
     end
   end

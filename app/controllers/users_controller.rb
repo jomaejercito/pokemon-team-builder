@@ -43,6 +43,14 @@ class UsersController < ApplicationController
     redirect '/'
   end
 
+  get '/users' do
+    if logged_in?
+      erb :'/users/index'
+    else
+      redirect to '/login'
+    end
+  end
+
   get '/users/:id' do
     @user = User.find(params[:id])
     @teams = @user.teams

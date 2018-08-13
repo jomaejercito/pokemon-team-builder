@@ -1,0 +1,10 @@
+<h1>Welcome, <%= @current_user.username %></h1>
+
+<br><br><br>
+
+<ul>
+  <li><a href="/teams"> View Other Pokémon Teams </a></li>
+  <li><a href="/users/<%= current_user.id %>"> View Your Teams </a></li>
+  <li><a href="/teams/new"> Create a Team </a></li>
+  <li><a href="/logout"> Logout </a></li>
+</ul>

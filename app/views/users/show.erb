@@ -3,7 +3,6 @@
 
   <% @teams.each do |team| %>
     <h3><a href='/teams/<%= team.id %>'><%= team.name %></a></h3>
-    <h4>Trainer: <%= team.user.username %></h4>
     <br><br>
   <% end %>
 
@@ -11,5 +10,6 @@
 
 <ul>
   <li><a href="/teams/new"> Create a Team </a></li>
+  <li><a href="/teams"> View Other Pokémon Teams </a></li>
   <li><a href="/logout"> Logout </a></li>
 </ul>
