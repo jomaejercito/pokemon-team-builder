@@ -3,7 +3,7 @@
 
   <% Team.all.each do |team| %>
     <h3><a href='/teams/<%= team.id %>'><%= team.name %></a></h3>
-    <h4>Trainer: <a href='/users/<%= team.user.id %>'><%= team.user.username %></a></h4>
+    <h4>Pokémon Trainer: <a href='/users/<%= team.user.id %>'><%= team.user.username %></a></h4>
     <br><br>
   <% end %>
 
