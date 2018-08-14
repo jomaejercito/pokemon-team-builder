@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if logged_in?
-      redirect '/teams'
+      redirect '/users'
     end
-    erb :'/users/signup'
+      erb :'/users/signup'
   end
 
   post '/signup' do
@@ -15,13 +15,13 @@ class UsersController < ApplicationController
     else
       @user = User.create(params)
       session[:user_id] = @user.id
-      redirect '/teams'
+      redirect '/users'
     end
   end
 
   get '/login' do
     if logged_in?
-      redirect to '/teams'
+      redirect to '/users'
     else
       erb :'users/login'
     end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/teams'
+      redirect '/users'
     else
       redirect to '/login'
     end
@@ -54,7 +54,11 @@ class UsersController < ApplicationController
   get '/users/:id' do
     @user = User.find(params[:id])
     @teams = @user.teams
-    erb :'/users/show'
+    if logged_in?
+      erb :'/users/show'
+    else
+      redirect to '/login'
+    end
   end
 
 

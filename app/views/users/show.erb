@@ -3,13 +3,13 @@
 
   <% @teams.each do |team| %>
     <h3><a href='/teams/<%= team.id %>'><%= team.name %></a></h3>
-    <br><br>
   <% end %>
 
 <br><br><br><br><br>
 
 <ul>
-  <li><a href="/teams/new"> Create a Team </a></li>
   <li><a href="/teams"> View Other Pokémon Teams </a></li>
-  <li><a href="/logout"> Logout </a></li>
+  <li><a href="/users/<%= current_user.id %>"> View Your Teams </a></li>
+  <li><a href="/teams/new"> Create a Team </a></li>
+  <li><a href="/users"> Back to Homepage </a></li>
 </ul>
